@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.db
+.novel-weaver/
+.env
+.DS_Store
+*.log
+npm-debug.log*
+coverage/
+.nyc_output/
+docs/_book
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db

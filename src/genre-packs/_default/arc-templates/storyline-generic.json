@@ -1,0 +1,44 @@
+{
+  "id": "default-storyline-generic",
+  "name": "通用剧情线",
+  "arcType": "storyline",
+  "theme": "generic",
+  "defaultRules": [
+    "主线剧情必须始终推进，不可长期停滞",
+    "支线剧情需与主线有关联，不可完全独立",
+    "角色成长需有合理的触发条件和过程",
+    "冲突升级需逐步递进，避免突然跳级",
+    "伏笔需在合理范围内回收，不可遗忘或强行回收"
+  ],
+  "rewardPool": [
+    { "name": "经验点数 ×100", "description": "可用于提升角色能力或技能等级", "tier": "basic" },
+    { "name": "基础物资包", "description": "包含日常所需的补给品和工具", "tier": "basic" },
+    { "name": "稀有技能书", "description": "学习后可获得一项特殊技能", "tier": "rare" },
+    { "name": "精良装备", "description": "提升角色某项属性的装备，附带一个特殊效果", "tier": "rare" },
+    { "name": "传说遗物", "description": "蕴含强大力量的古老物品，使用需付出代价", "tier": "legendary" },
+    { "name": "命运之钥", "description": "可开启一个隐藏的剧情分支或秘密区域", "tier": "legendary" }
+  ],
+  "npcTemplates": [
+    { "roleType": "引导者", "nameHint": "老练的前辈", "stance": "friendly", "description": "经验丰富的前辈角色，在关键时刻提供指引和建议。不会直接解决问题，而是引导主角找到答案。", "motivation": "曾经也走过类似的路，希望后来者少走弯路。" },
+    { "roleType": "阻碍者", "nameHint": "强势的对手", "stance": "hostile", "description": "与主角目标冲突的角色，实力强横且有自己的行事逻辑。不会无脑作恶，每次冲突都有明确目的。", "motivation": "与主角的利益或理念存在根本性冲突。" },
+    { "roleType": "情报商", "nameHint": "消息灵通的中间人", "stance": "neutral", "description": "在各势力之间游走的中间人，掌握大量信息。以利益交换为原则，立场中立但信息可靠。", "motivation": "通过信息交易获取利益，维持自身在各势力间的生存空间。" },
+    { "roleType": "背叛者", "nameHint": "亲近的同伴", "stance": "deceptive", "description": "看似忠诚的同伴，实则在关键时刻会因自身利益或隐藏目的而背叛。背叛应有铺垫而非毫无征兆。", "motivation": "被更大的利益或威胁所驱动，背叛并非本意但别无选择。" }
+  ],
+  "nameSuggestions": ["命运交汇点", "旧日回响", "暗流涌动", "破晓之前", "风暴之眼", "迷失之地", "最后一程", "未完的约定"],
+  "backstoryHooks": [
+    "一段被遗忘的历史即将重演，而主角正是当年事件的关键延续。",
+    "一个看似普通的决定引发了连锁反应，将主角卷入了一场远超想象的漩涡。",
+    "两个截然不同的世界即将碰撞，而碰撞点正是主角所在之处。"
+  ],
+  "clearanceMainTemplates": [
+    "完成 {n} 个关键剧情节点，推动主线走向结局",
+    "在最终冲突中击败或化解主要对手，达成核心目标",
+    "收集所有关键线索，揭示隐藏的真相并做出最终抉择"
+  ],
+  "clearanceSideTemplates": [
+    "在不与关键NPC产生敌对关系的情况下完成主线",
+    "找到所有隐藏的剧情碎片，拼凑出完整的故事",
+    "帮助至少 {n} 名NPC解决各自的困境",
+    "在限定时间内完成所有支线任务"
+  ]
+}

@@ -1,0 +1,59 @@
+# Source files
+src/
+types/
+
+# Test files
+**/*.test.ts
+**/*.spec.ts
+coverage/
+.nyc_output/
+
+# Build outputs not in dist/
+web/
+web-dist/
+*.tsbuildinfo
+.turbo
+
+# Config
+tsconfig.json
+tsconfig.*.json
+.gitignore
+.github/
+.git/
+.editorconfig
+.eslintrc*
+.prettierrc*
+.prettierignore
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Spec / docs dev
+.trae/
+*.md
+!README.md
+!LICENSE
+
+# Node
+node_modules/
+.pnp
+.pnp.js

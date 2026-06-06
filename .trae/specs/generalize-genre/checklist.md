@@ -1,0 +1,36 @@
+- [ ] GenrePackRegistry 类实现 register/resolve/listAll/getArcTemplate 四个方法
+- [ ] GenrePack 类型定义完整，包含 id/name/version/subGenres/defaultArcType/supportedArcTypes/worldTypes/characterRoles/powerSystem/writingRules/antiAiOverrides
+- [ ] 4 个题材包（infinite-flow/xianxia/urban/_default）的 pack.json 文件存在且格式正确
+- [ ] infinite-flow 题材包包含 5 个副本模板 JSON（从 dungeon-templates.ts 迁移）
+- [ ] xianxia 题材包包含 4 个篇章模板 JSON
+- [ ] urban 题材包包含 4 个篇章模板 JSON
+- [ ] _default 题材包包含 1 个通用故事线模板
+- [ ] 数据库 schema.ts 中 dungeons 表已重命名为 arcs，包含 arc_type 和 genre_id 字段
+- [ ] 数据库 schema.ts 中 chapters/progress/outlines 的 dungeon_id 已改为 arc_id
+- [ ] 数据库 schema.ts 中新增 genre_config 表
+- [ ] 数据库 schema.ts 中新增 arcs_fts FTS4 索引
+- [ ] 数据库 schema.ts 中 worlds.type CHECK 为 primary/secondary/arc
+- [ ] 数据库 schema.ts 中 projects.genre 默认值为 fantasy
+- [ ] 数据库 schema.ts 中 character_states.context 使用 primary/arc:{id} 格式
+- [ ] 数据库 schema.ts 中 characters.role_type 无固定 CHECK
+- [ ] src/tools/arc.ts 中工具名为 novel_arc_generate 和 novel_arc_customize
+- [ ] novel_arc_generate 接受 arc_type/theme/difficulty/parent_world_id/genre_id 参数
+- [ ] novel_genre_list 工具返回所有已注册题材包摘要
+- [ ] novel_genre_config 工具支持查看和覆盖配置
+- [ ] novel_init 的 genre 参数接受题材包ID或子类型名
+- [ ] src/tools/dungeon.ts 和 src/tools/dungeon-templates.ts 已删除
+- [ ] ArcMaster 提示词动态组合（基础 + genre 片段 + arc_type 片段）
+- [ ] 5 种 arc_type 提示词片段存在（dungeon/trial/quest/storyline/campaign）
+- [ ] WorldBuilder/Reviewer/PlotPlanner 提示词按 genre 注入题材规则
+- [ ] ChapterRequest 使用 arcId/arcType/genre 字段
+- [ ] emotion-blueprint 按 arc_type 分化（5种情绪曲线）
+- [ ] context-manager 返回的 WritingContext 包含 genrePack 字段
+- [ ] Pipeline 支持 PipelinePhaseConfig，按题材定义阶段配置
+- [ ] 文件存储使用 arcs/ 目录和 arc-{name}.md 命名
+- [ ] Markdown frontmatter 使用 type: arc + arc_type + genre_id
+- [ ] src/index.ts 注册 25 个工具（23旧 - 2重命名 + 2新增 + 1删除 + 1重命名文件）
+- [ ] src/config.ts 默认 genre 为 fantasy
+- [ ] src/agents/prompts/DungeonMaster.ts 已删除，ArcMaster.ts 存在
+- [ ] src/md/templates/dungeon.ts 已删除，arc.ts 存在
+- [ ] npm run typecheck 通过
+- [ ] npm run build 通过

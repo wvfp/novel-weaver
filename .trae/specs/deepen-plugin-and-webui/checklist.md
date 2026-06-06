@@ -1,0 +1,23 @@
+- [x] messages.transform hook 在数据库未初始化时静默跳过，不抛错
+- [x] messages.transform hook 在有章节时注入最近 3 章摘要和角色状态
+- [x] messages.transform hook 在无章节时注入"新项目"提示
+- [x] system.transform hook 在有风格锚点时注入风格约束到 output.system
+- [x] system.transform hook 在 antiAi 启用时注入反 AI 表达禁令到 output.system
+- [x] system.transform hook 在无锚点且 antiAi 未启用时注入通用写作提醒
+- [x] tool.execute.after hook 在 novel_write_chapter/novel_write_continue 完成后追加一致性检查提示
+- [x] tool.execute.after hook 对非写作工具不做修改
+- [x] src/index.ts 注册了 3 个新 hook（messages.transform / system.transform / tool.execute.after）
+- [x] Dashboard API 新增 GET /api/pipeline 端点，返回 pipeline_state 数据
+- [x] packages/novel-app/package.json 存在且包含 SolidJS + Vite + Tailwind + @opencode-ai/sdk 依赖
+- [x] packages/novel-app/vite.config.ts 配置了 Solid 插件和 proxy
+- [x] novel-app entry.tsx 成功连接 OpenCode 后端
+- [x] novel-app 路由包含 5 个页面（/ /chat /editor/:id /world /review）
+- [x] 首页显示项目概览卡片和 Pipeline 进度
+- [x] Chat 页面可通过 SDK 发送消息和接收流式回复
+- [x] 编辑器页面显示 Markdown 编辑器和实时预览
+- [x] 世界观页面显示世界观列表和角色卡片
+- [x] 审查页面显示章节评分和一致性检查结果
+- [x] PWA manifest 存在且配置了 display: standalone
+- [x] Service Worker 注册成功，可缓存静态资源
+- [x] novel-plugin npm run typecheck 通过
+- [x] novel-app npm run build 通过

@@ -1,0 +1,89 @@
+{
+  "id": "xianxia",
+  "name": "仙侠",
+  "version": "1.0.0",
+  "description": "仙侠题材包，涵盖修真、玄幻、武侠等子类型。以修真境界提升和因果法则为核心驱动力。",
+  "subGenres": ["仙侠", "修真", "玄幻", "武侠", "仙侠修真"],
+  "defaultArcType": "trial",
+  "supportedArcTypes": ["trial", "dungeon", "quest", "storyline"],
+  "worldTypes": ["primary", "secondary", "arc"],
+  "characterRoles": [
+    {
+      "id": "protagonist",
+      "name": "主角",
+      "description": "修真之路的行者，通过历练和悟道不断提升境界",
+      "traits": ["悟性超群", "机缘深厚", "心志坚定"]
+    },
+    {
+      "id": "fellow-disciple",
+      "name": "同门",
+      "description": "同一宗门的师兄弟，可能是助力也可能是竞争者",
+      "traits": ["同门情谊", "资源竞争", "各有际遇"]
+    },
+    {
+      "id": "elder",
+      "name": "长老",
+      "description": "宗门中的高阶修士，掌握资源和传承，行事深不可测",
+      "traits": ["修为高深", "城府极深", "各有算计"]
+    },
+    {
+      "id": "rival",
+      "name": "对手",
+      "description": "修真路上的竞争者或敌对势力，推动主角成长",
+      "traits": ["实力相当", "各有底牌", "因果纠缠"]
+    },
+    {
+      "id": "demon",
+      "name": "妖魔",
+      "description": "修真界的异类存在，可能是敌人也可能是意外的盟友",
+      "traits": ["实力强横", "行事随心", "与人族有深仇"]
+    }
+  ],
+  "powerSystem": {
+    "name": "修真境界体系",
+    "levels": ["练气期", "筑基期", "金丹期", "元婴期", "化神期", "合体期", "大乘期", "渡劫期"],
+    "breakthroughMethod": "需积累足够灵气并经历心魔试炼，或借助天材地宝和特殊际遇突破瓶颈",
+    "coreResource": "灵气"
+  },
+  "writingRules": {
+    "forbiddenWords": [],
+    "recommendedPatterns": [
+      "境界突破需有铺垫和契机，不可凭空提升",
+      "功法体系需自洽，同一功法前后不可矛盾",
+      "因果法则有效：善有善报、恶有恶报，但因果可延迟",
+      "心魔试炼是修真者的必经之路，突破大境界需面对内心",
+      "宗门势力关系需有政治博弈感，不可简单二元对立"
+    ],
+    "forbiddenPatterns": [
+      "无铺垫的境界飞跃突破",
+      "功法设定前后矛盾",
+      "法宝无限制使用无代价",
+      "反派毫无理由地作恶",
+      "修真者行事毫无逻辑只为推动剧情"
+    ],
+    "paragraphStyle": "文风古雅，善用四字成语和文言句式，战斗描写注重意境和气势，修炼描写侧重感悟和心境变化",
+    "dialogueStyle": "对话含蓄蕴藉，高手过招话中有话，晚辈对长辈用敬语，同辈之间可直呼道号"
+  },
+  "antiAiOverrides": {
+    "layers": [],
+    "extraForbidden": [],
+    "genreSpecificPatterns": []
+  },
+  "pacingRules": {
+    "conflictDensity": { "min": 1, "window": 3 },
+    "sweetPointDensity": { "min": 2, "max": 5 },
+    "bitterPointConstraints": [
+      { "chapterRange": "1-30", "maxSeverity": "minor", "description": "开篇不能虐" },
+      { "chapterRange": "30-100", "maxSeverity": "moderate", "description": "可以中虐" }
+    ],
+    "goldenChapters": { "range": "1-3", "minHooks": 2, "requiredTraits": 2 },
+    "chapterHook": { "minLength": 50, "required": true },
+    "climaxKeywords": ["打脸", "揭露", "反转", "突破", "决裂", "揭穿", "真相", "报仇", "渡劫", "复仇", "悟道", "飞升", "破境"],
+    "satisfactionKeywords": ["打脸", "升级", "揭露", "装逼", "碾压", "突破", "悟道", "复仇", "震惊", "臣服"],
+    "sufferingKeywords": ["失败", "受伤", "死亡", "冤枉", "背叛", "牺牲", "失忆", "误会", "重伤", "中毒", "心魔", "陨落"],
+    "hookScoreThreshold": 6,
+    "golden3ScoreThreshold": 65,
+    "climaxGapWarning": 3
+  },
+  "promptFile": "prompts/arc-master.md"
+}

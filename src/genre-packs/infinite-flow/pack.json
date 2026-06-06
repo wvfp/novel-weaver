@@ -1,0 +1,87 @@
+{
+  "id": "infinite-flow",
+  "name": "无限流",
+  "version": "1.0.0",
+  "description": "无限流题材包，涵盖副本流、轮回流、生存游戏等子类型。以副本挑战和积分成长为核心驱动力。",
+  "subGenres": ["无限流", "副本流", "轮回流", "生存游戏", "死亡游戏"],
+  "defaultArcType": "dungeon",
+  "supportedArcTypes": ["dungeon", "campaign", "quest"],
+  "worldTypes": ["primary", "secondary", "arc"],
+  "characterRoles": [
+    {
+      "id": "player",
+      "name": "玩家",
+      "description": "被副本系统选中的参与者，通过完成副本获取积分和奖励",
+      "traits": ["适应力强", "规则敏感", "团队协作"]
+    },
+    {
+      "id": "npc",
+      "name": "NPC",
+      "description": "副本内的非玩家角色，可能是引导者、阻碍者或情报来源",
+      "traits": ["行为受限", "信息碎片化", "可能有隐藏身份"]
+    },
+    {
+      "id": "guide",
+      "name": "引导者",
+      "description": "在副本入口或关键节点提供规则说明和基础指引的角色",
+      "traits": ["信息有限", "不可离开岗位", "暗示性语言"]
+    },
+    {
+      "id": "rival",
+      "name": "竞争者",
+      "description": "其他玩家或阵营，与主角争夺副本资源和通关机会",
+      "traits": ["独立动机", "可能结盟或背叛", "实力接近主角"]
+    },
+    {
+      "id": "boss",
+      "name": "守关者",
+      "description": "副本最终挑战的守护者，击败或绕过即可通关",
+      "traits": ["压倒性力量", "有弱点或特殊机制", "与副本背景关联"]
+    }
+  ],
+  "powerSystem": {
+    "name": "副本积分体系",
+    "levels": ["F级", "E级", "D级", "C级", "B级", "A级", "S级", "SS级", "SSS级"],
+    "breakthroughMethod": "积累副本积分达到阈值后可选择升级，或通过特殊副本获得突破机会",
+    "coreResource": "副本积分"
+  },
+  "writingRules": {
+    "forbiddenWords": [],
+    "recommendedPatterns": [
+      "规则揭示式开场：通过NPC对话或系统提示逐步展现副本规则",
+      "信息差制造张力：玩家掌握的信息不对称，引发博弈和推理",
+      "道德困境设计：通关条件与道德选择冲突",
+      "多线叙事：主世界线与副本线交替推进"
+    ],
+    "forbiddenPatterns": [
+      "规则随意修改或新增未铺垫的规则",
+      "主角凭运气而非智慧通关",
+      "NPC毫无动机地帮助主角",
+      "奖励泛滥导致价值体系崩塌"
+    ],
+    "paragraphStyle": "短句为主，节奏紧凑，副本内场景描写侧重氛围营造和规则暗示",
+    "dialogueStyle": "对话简洁有力，NPC语言带有信息碎片特征，玩家间对话体现博弈和试探"
+  },
+  "antiAiOverrides": {
+    "layers": [],
+    "extraForbidden": [],
+    "genreSpecificPatterns": []
+  },
+  "pacingRules": {
+    "conflictDensity": { "min": 2, "window": 3 },
+    "sweetPointDensity": { "min": 3, "max": 8 },
+    "bitterPointConstraints": [
+      { "chapterRange": "1-50", "maxSeverity": "moderate", "description": "早期虐点不能太重，否则劝退" },
+      { "chapterRange": "51-100", "maxSeverity": "severe", "description": "中期可以有大虐，但需要爽点平衡" }
+    ],
+    "goldenChapters": { "range": "1-3", "minHooks": 3, "requiredTraits": 2 },
+    "chapterHook": { "minLength": 80, "required": true },
+    "climaxKeywords": ["打脸", "揭露", "反转", "突破", "决裂", "揭穿", "真相", "报仇", "副本完成", "宝箱", "升级", "通关", "反杀", "碾压"],
+    "satisfactionKeywords": ["打脸", "升级", "揭露", "装逼", "碾压", "通关", "反败为胜", "震惊", "臣服", "夺魁", "胜出"],
+    "sufferingKeywords": ["失败", "受伤", "死亡", "冤枉", "背叛", "牺牲", "失忆", "误会", "重伤", "中毒", "被杀", "团灭"],
+    "hookScoreThreshold": 6,
+    "golden3ScoreThreshold": 70,
+    "climaxGapWarning": 3
+  },
+  "promptFile": "prompts/arc-master.md"
+}

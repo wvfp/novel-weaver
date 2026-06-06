@@ -1,0 +1,33 @@
+- [ ] messages-transform hook 测试：DB 未初始化时静默跳过
+- [ ] messages-transform hook 测试：有章节时注入摘要和角色状态
+- [ ] messages-transform hook 测试：无章节时注入"新项目"提示
+- [ ] system-transform hook 测试：有锚点时注入风格约束
+- [ ] system-transform hook 测试：antiAi 启用时注入禁令
+- [ ] system-transform hook 测试：无配置时注入通用提醒
+- [ ] tool-execute-after hook 测试：写作工具完成后追加提示
+- [ ] tool-execute-after hook 测试：非写作工具不做修改
+- [ ] Genre Pack 加载测试：4 个 pack.json 都能正确加载
+- [ ] Genre Pack 加载测试：每个 pack 的 arcTemplates 能正确解析
+- [ ] DB 初始化测试：schema 创建成功，所有表存在
+- [ ] Chat 页面通过 SDK 发送消息并接收 SSE 流式回复
+- [ ] Chat 页面工具调用结果显示为可折叠卡片
+- [ ] 首页从 /api/project 和 /api/pipeline 拉取真实数据
+- [ ] 首页后端不可用时显示错误提示和重试按钮
+- [ ] 编辑器从 /api/chapters/:id 拉取章节内容
+- [ ] 世界观页面从 /api/worlds、/api/characters、/api/arcs 拉取数据
+- [ ] 审查页面从 /api/chapters 拉取审查数据
+- [ ] 移动端导航栏折叠为汉堡菜单
+- [ ] Service Worker 在 entry.tsx 中注册
+- [ ] novel_genre_list 工具返回所有 Genre Pack 列表
+- [ ] novel_genre_config 工具可查看和切换当前题材
+- [ ] WorldBuilder prompt 根据_genre pack 动态追加约束
+- [ ] Reviewer prompt 根据 genre pack 动态追加审查标准
+- [ ] PlotPlanner prompt 根据 genre pack 动态追加调整
+- [ ] 章节引擎 dispatcher 注入 genre writingRules
+- [ ] chat.message hook 检测"写下一章"意图并注入 pipeline 上下文
+- [ ] chat.message hook 检测"审查"意图
+- [ ] event hook 监听章节完成事件并自动推进 pipeline
+- [ ] novel-plugin npm run typecheck 通过
+- [ ] novel-plugin npm run build 通过
+- [ ] novel-app vite build 通过
+- [ ] novel-plugin bun test 通过

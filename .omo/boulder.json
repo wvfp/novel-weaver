@@ -1,0 +1,137 @@
+{
+  "schema_version": 2,
+  "active_work_id": "writing-quality-upgrade-77bb2465",
+  "works": {
+    "writing-quality-upgrade-77bb2465": {
+      "work_id": "writing-quality-upgrade-77bb2465",
+      "active_plan": "/root/novel-plugin/.omo/plans/writing-quality-upgrade.md",
+      "plan_name": "writing-quality-upgrade",
+      "status": "active",
+      "started_at": "2026-06-05T11:02:27.981Z",
+      "updated_at": "2026-06-05T11:50:35.953Z",
+      "session_ids": [
+        "opencode:ses_1693daec2ffeNrcARhHfJYnirt"
+      ],
+      "session_origins": {
+        "opencode:ses_1693daec2ffeNrcARhHfJYnirt": "direct"
+      },
+      "agent": "atlas",
+      "task_sessions": {
+        "todo:19": {
+          "task_key": "todo:19",
+          "task_label": "19",
+          "task_title": "**Upgrade novel_write_chapter with PlotWriter 分景写作流程**",
+          "session_id": "opencode:ses_168758198ffeMUATgCBE5z18lt",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-06-05T11:32:45.156Z",
+          "started_at": "2026-06-05T11:32:03.633Z",
+          "status": "completed",
+          "ended_at": "2026-06-05T11:32:45.155Z",
+          "elapsed_ms": 41522
+        },
+        "todo:20": {
+          "task_key": "todo:20",
+          "task_label": "20",
+          "task_title": "**Upgrade novel_review_fix with anti-AI auto-fix**",
+          "session_id": "opencode:ses_168712770ffeAc8UHuPL0mh00Z",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-06-05T11:35:59.788Z",
+          "started_at": "2026-06-05T11:35:30.350Z",
+          "status": "completed",
+          "ended_at": "2026-06-05T11:35:59.788Z",
+          "elapsed_ms": 29438
+        },
+        "todo:22": {
+          "task_key": "todo:22",
+          "task_label": "22",
+          "task_title": "**Create novel_crosscheck tool**",
+          "session_id": "opencode:ses_1686dd0dcffek0VfLTGy4jgLJs",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-06-05T11:42:54.274Z",
+          "started_at": "2026-06-05T11:41:12.262Z",
+          "status": "completed",
+          "ended_at": "2026-06-05T11:42:54.274Z",
+          "elapsed_ms": 102012
+        },
+        "todo:27": {
+          "task_key": "todo:27",
+          "task_label": "27",
+          "task_title": "**Create Dashboard HTTP server**",
+          "session_id": "opencode:ses_16866d498ffeVW3RQVgYUA00cF",
+          "agent": "Sisyphus-Junior",
+          "category": "unspecified-high",
+          "updated_at": "2026-06-05T11:50:35.953Z",
+          "started_at": "2026-06-05T11:50:35.953Z",
+          "status": "running"
+        }
+      }
+    }
+  },
+  "active_plan": "/root/novel-plugin/.omo/plans/writing-quality-upgrade.md",
+  "started_at": "2026-06-05T11:02:27.981Z",
+  "status": "active",
+  "updated_at": "2026-06-05T11:50:35.953Z",
+  "session_ids": [
+    "opencode:ses_1693daec2ffeNrcARhHfJYnirt"
+  ],
+  "session_origins": {
+    "opencode:ses_1693daec2ffeNrcARhHfJYnirt": "direct"
+  },
+  "plan_name": "writing-quality-upgrade",
+  "task_sessions": {
+    "todo:19": {
+      "task_key": "todo:19",
+      "task_label": "19",
+      "task_title": "**Upgrade novel_write_chapter with PlotWriter 分景写作流程**",
+      "session_id": "opencode:ses_168758198ffeMUATgCBE5z18lt",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-06-05T11:32:45.156Z",
+      "started_at": "2026-06-05T11:32:03.633Z",
+      "status": "completed",
+      "ended_at": "2026-06-05T11:32:45.155Z",
+      "elapsed_ms": 41522
+    },
+    "todo:20": {
+      "task_key": "todo:20",
+      "task_label": "20",
+      "task_title": "**Upgrade novel_review_fix with anti-AI auto-fix**",
+      "session_id": "opencode:ses_168712770ffeAc8UHuPL0mh00Z",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-06-05T11:35:59.788Z",
+      "started_at": "2026-06-05T11:35:30.350Z",
+      "status": "completed",
+      "ended_at": "2026-06-05T11:35:59.788Z",
+      "elapsed_ms": 29438
+    },
+    "todo:22": {
+      "task_key": "todo:22",
+      "task_label": "22",
+      "task_title": "**Create novel_crosscheck tool**",
+      "session_id": "opencode:ses_1686dd0dcffek0VfLTGy4jgLJs",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-06-05T11:42:54.274Z",
+      "started_at": "2026-06-05T11:41:12.262Z",
+      "status": "completed",
+      "ended_at": "2026-06-05T11:42:54.274Z",
+      "elapsed_ms": 102012
+    },
+    "todo:27": {
+      "task_key": "todo:27",
+      "task_label": "27",
+      "task_title": "**Create Dashboard HTTP server**",
+      "session_id": "opencode:ses_16866d498ffeVW3RQVgYUA00cF",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-06-05T11:50:35.953Z",
+      "started_at": "2026-06-05T11:50:35.953Z",
+      "status": "running"
+    }
+  },
+  "agent": "atlas"
+}

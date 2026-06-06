@@ -1,0 +1,13 @@
+- [ ] web/ 目录包含完整前端源码（src/、public/、package.json、vite.config.ts、tsconfig.json）
+- [ ] web/package.json 独立管理 SolidJS/Vite/Tailwind 依赖，不依赖 OpenCode monorepo
+- [ ] npm run web:dev 在 localhost:3000 启动前端开发服务器
+- [ ] npm run web:build 产物输出到 web/dist/
+- [ ] Dashboard API 在 localhost:4096 serve 前端静态文件
+- [ ] 访问 / 返回 web/dist/index.html
+- [ ] /api/* 路由优先于静态文件
+- [ ] web/dist/ 不存在时返回 JSON 错误提示
+- [ ] Vite proxy 将 /api/* 和 /v2/* 转发到 localhost:4096
+- [ ] 前端 import 路径不依赖 OpenCode monorepo
+- [ ] Tailwind CSS 正确编译
+- [ ] npm run typecheck 通过
+- [ ] npm run build 通过

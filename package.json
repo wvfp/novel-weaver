@@ -1,0 +1,93 @@
+{
+  "name": "novel-weaver",
+  "bin": {
+    "novel-weaver": "bin/novel-weaver.js"
+  },
+  "version": "0.1.4",
+  "description": "AI-assisted novel writing system for OpenCode - genre packs, arc templates, character voice tracking, pacing analysis, and a built-in web UI. Exposes tools via OpenCode plugin and MCP server.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./mcp": {
+      "import": "./dist/mcp-server.js",
+      "require": "./dist/mcp-server.cjs"
+    },
+    "./tools/install-agents": {
+      "import": "./dist/tools/install-agents.js",
+      "require": "./dist/tools/install-agents.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.0",
+    "zod-to-json-schema": "^3.23.5"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build",
+    "web:dev": "cd web && npx vite --host",
+    "web:build": "cd web && npx vite build",
+    "web:preview": "cd web && npx vite preview"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@opencode-ai/plugin": "^1.16.0",
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "sql.js": "^1.10",
+    "uuid": "^10",
+    "zod-to-json-schema": "^3.25.2"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20",
+    "@types/uuid": "^10.0.0",
+    "tsup": "^8",
+    "tsx": "^4.22.3",
+    "typescript": "^5.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "novel",
+    "writing",
+    "ai-writing",
+    "creative-writing",
+    "worldbuilding",
+    "pacing",
+    "character-voice",
+    "genre-pack",
+    "novel-writer"
+  ],
+  "author": "wvfp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wvfp/novel-weaver.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wvfp/novel-weaver/issues"
+  },
+  "homepage": "https://github.com/wvfp/novel-weaver#readme"
+}

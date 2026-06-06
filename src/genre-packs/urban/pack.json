@@ -1,0 +1,88 @@
+{
+  "id": "urban",
+  "name": "都市",
+  "version": "1.0.0",
+  "description": "都市题材包，涵盖都市异能、都市修仙、都市传说、现代奇幻等子类型。以现实都市为舞台，超自然力量隐藏于日常之下。",
+  "subGenres": ["都市", "都市异能", "都市修仙", "都市传说", "现代奇幻"],
+  "defaultArcType": "quest",
+  "supportedArcTypes": ["quest", "storyline", "dungeon", "campaign"],
+  "worldTypes": ["primary", "secondary", "arc"],
+  "characterRoles": [
+    {
+      "id": "protagonist",
+      "name": "主角",
+      "description": "拥有超自然能力的都市人，需在正常生活与异常世界之间维持平衡",
+      "traits": ["双重身份", "异常值管理", "日常与非凡交织"]
+    },
+    {
+      "id": "ally",
+      "name": "盟友",
+      "description": "在暗面世界中并肩作战的伙伴，可能是同属一个组织的成员",
+      "traits": ["互相信任", "能力互补", "各有秘密"]
+    },
+    {
+      "id": "investigator",
+      "name": "调查者",
+      "description": "追踪异常事件的专业人士，掌握情报网络和调查手段",
+      "traits": ["信息灵通", "逻辑缜密", "立场暧昧"]
+    },
+    {
+      "id": "hidden-faction",
+      "name": "隐秘势力",
+      "description": "隐藏在都市暗面的组织或个人，目的不明，实力深不可测",
+      "traits": ["行事隐秘", "目的不明", "实力超群"]
+    },
+    {
+      "id": "civilian",
+      "name": "普通人",
+      "description": "不知晓暗面世界存在的普通市民，可能是主角的牵挂或软肋",
+      "traits": ["对异常一无所知", "可能被卷入事件", "是主角的人性锚点"]
+    }
+  ],
+  "powerSystem": {
+    "name": "异能觉醒体系",
+    "levels": ["觉醒期", "成长期", "成熟期", "超凡期", "领域期"],
+    "breakthroughMethod": "通过生死危机或深度冥想触发二次觉醒，或吸收异能结晶提升等阶",
+    "coreResource": "异常值"
+  },
+  "writingRules": {
+    "forbiddenWords": [],
+    "recommendedPatterns": [
+      "超自然能力在普通人面前需保持隐秘",
+      "都市传说具有力量——相信的人越多越真实",
+      "社会规则和日常逻辑不可完全抛弃",
+      "角色需维持双重身份的紧张感",
+      "现代科技与超自然力量应有交互和冲突"
+    ],
+    "forbiddenPatterns": [
+      "超自然能力在公众面前毫无顾忌地使用",
+      "完全忽略日常生活和现实逻辑",
+      "异常值系统无限制使用无代价",
+      "隐秘势力毫无理由地帮助主角",
+      "都市传说与剧情毫无关联"
+    ],
+    "paragraphStyle": "节奏明快，日常场景注重细节真实感，异常场景侧重氛围突变，两种风格交替制造反差",
+    "dialogueStyle": "日常对话自然口语化，暗面世界对话暗含试探和隐语，双重身份的对话需体现切换感"
+  },
+  "antiAiOverrides": {
+    "layers": [],
+    "extraForbidden": [],
+    "genreSpecificPatterns": []
+  },
+  "pacingRules": {
+    "conflictDensity": { "min": 2, "window": 3 },
+    "sweetPointDensity": { "min": 2, "max": 6 },
+    "bitterPointConstraints": [
+      { "chapterRange": "1-50", "maxSeverity": "minor", "description": "都市开篇主轻松" }
+    ],
+    "goldenChapters": { "range": "1-3", "minHooks": 2, "requiredTraits": 1 },
+    "chapterHook": { "minLength": 50, "required": true },
+    "climaxKeywords": ["打脸", "揭露", "反转", "突破", "决裂", "揭穿", "真相", "报仇", "识破", "揭发"],
+    "satisfactionKeywords": ["打脸", "升级", "揭露", "装逼", "碾压", "逆袭", "翻盘", "艳惊四座", "臣服"],
+    "sufferingKeywords": ["失败", "受伤", "死亡", "冤枉", "背叛", "牺牲", "失忆", "误会", "重伤", "破产", "退婚"],
+    "hookScoreThreshold": 6,
+    "golden3ScoreThreshold": 65,
+    "climaxGapWarning": 3
+  },
+  "promptFile": "prompts/arc-master.md"
+}

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /root/novel-plugin/.omo -type f 2>/dev/null | head -50)",
+      "Bash(cd /root/novel-plugin && npm install --silent 2>&1 | tail -5)",
+      "Bash(cd /root/novel-plugin && npx tsc --noEmit 2>&1)",
+      "Bash(cd /root/novel-plugin && npm install --save-dev @types/compression --silent 2>&1 | tail -3)",
+      "Bash(cd /root/novel-plugin && npm run build 2>&1 | tail -10)",
+      "Bash(cd /root/novel-plugin && npx tsup 2>&1 | tail -15)",
+      "Bash(cd /root/novel-plugin && npx tsup)",
+      "Bash(cd /root/novel-plugin && grep -c \"novel_dashboard\\\\|novel_annotations\\\\|novel_imprint\\\\|novel_summary\\\\|novel_fact_lock\" src/index.ts)",
+      "Bash(cd /root/novel-plugin && npx tsc --noEmit)"
+    ]
+  }
+}
