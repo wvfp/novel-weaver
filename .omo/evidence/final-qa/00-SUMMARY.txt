@@ -1,0 +1,26 @@
+============================================================
+novel-weaver F3: End-to-End QA Test — SUMMARY
+Date: 2026-06-06T15:37:43.488Z
+Project: G:\AppData\temp\opencode\novel-qa-20260606-232843
+
+Total Steps: 12
+Passed: 12
+Failed: 0
+Evidence Files: 12
+
+Step Details:
+  PASS Step 1: plugin_load
+  PASS Step 2: novel_init
+  PASS Step 3: novel_world_create
+  PASS Step 4: novel_arc_generate
+  PASS Step 5: novel_character_create
+  PASS Step 6: novel_write_chapter
+  PASS Step 7: novel_review_chapter
+  PASS Step 8: novel_consistency_check
+  PASS Step 9: novel_crosscheck
+  PASS Step 10: novel_state_snapshot
+  PASS Step 11: novel_progress_summary
+  PASS Step 12: novel_stats
+
+VERDICT: ALL STEPS PASSED
+============================================================

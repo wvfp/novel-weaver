@@ -34,8 +34,8 @@ export const novel_world_create = tool({
       .string()
       .describe('世界名称，将用作文件名和 wikilink 引用标识'),
     type: tool.schema
-      .enum(['core', 'arc'])
-      .describe('世界类型：core = 核心世界（主世界），arc = 篇章世界（一次性/周回）'),
+      .enum(['primary', 'secondary', 'arc'])
+      .describe('世界类型：primary = 核心世界（主世界），secondary = 次级世界，arc = 篇章世界（一次性/周回）'),
     project_id: tool.schema
       .string()
       .optional()
@@ -167,7 +167,7 @@ export const novel_world_create = tool({
       output: [
         `✅ 世界「${args.name}」创建成功！`,
         `　ID: ${id}`,
-        `　类型: ${args.type === 'core' ? '核心世界' : '篇章世界'}`,
+        `　类型: ${args.type === 'primary' ? '核心世界' : args.type === 'secondary' ? '次级世界' : '篇章世界'}`,
         `　文件: ${SETTINGS_DIR}/${filename}`,
         ``,
         `可使用 [[${args.name}]] 在其它 Markdown 文件中引用此世界。`,

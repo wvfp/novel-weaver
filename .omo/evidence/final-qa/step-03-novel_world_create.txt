@@ -1,0 +1,9 @@
+=== Step 3: novel_world_create [PASS] ===
+✅ 世界「灵武大陆」创建成功！
+　ID: 75f2924c-f4d1-4488-9d37-8c01512acb68
+　类型: 核心世界
+　文件: .novel-weaver/content/settings/world-灵武大陆.md
+
+可使用 [[灵武大陆]] 在其它 Markdown 文件中引用此世界。
+
+[META] worldId: 75f2924c-f4d1-4488-9d37-8c01512acb68

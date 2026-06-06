@@ -25,6 +25,20 @@ export interface AntiAiRule {
   layer: number;
 }
 
+/** 反 AI 味检测结果条目 */
+export interface AntiAiResult {
+  /** 匹配的模式 */
+  pattern: string;
+  /** 分类 */
+  category: string;
+  /** 严重程度 */
+  severity: string;
+  /** 层级 (1-7) */
+  layer: number;
+  /** 匹配次数 */
+  count: number;
+}
+
 /** 替换操作记录 */
 export interface AntiAiChange {
   /** 匹配的模式 */
@@ -165,4 +179,15 @@ export function detectAntiAiPatterns(text: string): Array<{
   }
 
   return results;
+}
+
+/**
+ * `checkAntiAi` 是 `detectAntiAiPatterns` 的别名。
+ * 对文本进行检测，返回所有匹配的反 AI 味表达。
+ *
+ * @param text - 待检测的文本
+ * @returns 所有检测到的 AI 味表达
+ */
+export function checkAntiAi(text: string): AntiAiResult[] {
+  return detectAntiAiPatterns(text);
 }

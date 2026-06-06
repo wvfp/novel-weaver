@@ -24,6 +24,7 @@ import { createSystemTransformHook } from "./hooks/system-transform.js";
 import { createToolExecuteAfterHook } from "./hooks/tool-execute-after.js";
 import { createChatMessageHook } from "./hooks/chat-message.js";
 import { createEventHook } from "./hooks/event.js";
+import { createCompactingHook } from "./hooks/compacting.js";
 
 // ---------------------------------------------------------------------------
 // Plugin entry
@@ -118,6 +119,12 @@ const novelWeaverPlugin: Plugin = async (_input, _options) => {
     // Event hook — auto-advances pipeline when arc chapters complete
     // -----------------------------------------------------------------------
     event: createEventHook(),
+
+    // -----------------------------------------------------------------------
+    // Session compacting hook — injects novel-specific retention context
+    // (locked facts, unresolved hooks, character states, creative intent)
+    // -----------------------------------------------------------------------
+    "experimental.session.compacting": createCompactingHook(),
   };
 
   return hooks;

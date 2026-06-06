@@ -11,18 +11,34 @@ export * from './registry.js';
 export * from './loader.js';
 
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { GenrePackRegistry } from './registry.js';
 import { loadGenrePacks } from './loader.js';
 
 /** 全局题材包注册表单例 */
 let _registry: GenrePackRegistry | null = null;
 
+/**
+ * Get the directory containing genre packs.
+ * In bundled ESM output, __dirname is not available — fall back to import.meta.url.
+ */
+function getGenrePacksDir(): string {
+  // Prefer import.meta.url (ESM modules), fall back to __dirname (CJS or node -e).
+  // In node -e context, __dirname is '.' so we must prefer import.meta.url.
+  // The genre-pack data directories (xianxia/, urban/, infinite-flow/, _default/)
+  // are siblings of this file, not in a 'genre-packs' subdirectory.
+  try {
+    return path.dirname(fileURLToPath(import.meta.url));
+  } catch {
+    return __dirname;
+  }
+}
+
 /** 获取全局题材包注册表（懒加载） */
 export function getRegistry(): GenrePackRegistry {
   if (!_registry) {
     _registry = new GenrePackRegistry();
-    // __dirname 在 ESM bundler 模式下指向当前文件所在目录
-    loadGenrePacks(__dirname, _registry);
+    loadGenrePacks(getGenrePacksDir(), _registry);
   }
   return _registry;
 }

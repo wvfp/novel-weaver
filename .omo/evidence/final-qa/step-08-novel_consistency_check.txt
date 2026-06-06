@@ -1,0 +1,10 @@
+=== Step 8: novel_consistency_check [PASS] ===
+✅ **未发现一致性问题，所有世界设定一致！**
+
+| 级别 | 数量 |
+|------|------|
+| 🚫 BLOCKER | 0 |
+| ⚠️ WARNING | 0 |
+| ℹ️ INFO | 0 |
+
+📄 报告已保存：`.novel-weaver\content\reports\consistency-2026-06-06.md`

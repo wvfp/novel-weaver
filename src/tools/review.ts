@@ -14,10 +14,10 @@ import { tool } from "@opencode-ai/plugin/tool";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { getDatabase, generateId } from "../db/index.js";
-import { DEFAULT_CONFIG } from "../config.js";
 import { applyAllFixes } from "../modules/review/anti-ai-apply.js";
 import { loadAntiAiRules } from "../modules/review/anti-ai-rules.js";
 import { getRegistry } from "../genre-packs/index.js";
+import { buildChapterFilename } from "../md/wikilink.js";
 import { analyzeChapterPacing, type ChapterPacingRuleSet } from "./review-pacing.js";
 
 const z = tool.schema;
@@ -53,11 +53,11 @@ interface ChapterRow {
 
 /**
  * Resolve the filesystem path for a chapter .md file.
- * Convention: {dataDir}/chapters/{chapterId}.md
+ * Convention: {project}/.novel-weaver/content/chapters/vol-{vol}/ch{num}-{title}.md
  */
-function chapterFilePath(chapterId: string, projectDir: string): string {
-  const dataDir = DEFAULT_CONFIG.dataDir; // ".novel-weaver/data"
-  return path.join(projectDir, dataDir, "chapters", `${chapterId}.md`);
+function chapterFilePath(row: ChapterRow, projectDir: string): string {
+  const dir = path.join(projectDir, '.novel-weaver', 'content', 'chapters', `vol-${row.volume_num}`);
+  return path.join(dir, buildChapterFilename(row.chapter_num, row.title));
 }
 
 /** Read a file; returns null when the file does not exist. */
@@ -769,7 +769,7 @@ export const novel_review_chapter = tool({
     }
 
     // 2. Read chapter file
-    filePath = chapterFilePath(chapter_id, context.directory);
+    filePath = chapterFilePath(row!, context.directory);
     const fileContent = readFileSafe(filePath);
     if (fileContent === null) {
       return { output: `未找到章节文件：${filePath}` };
@@ -1047,7 +1047,7 @@ export const novel_review_fix = tool({
     }
 
     // 3. Read chapter file
-    filePath = chapterFilePath(chapter_id, context.directory);
+    filePath = chapterFilePath(chapter!, context.directory);
     const fileContent = readFileSafe(filePath);
     if (fileContent === null) {
       return { output: `未找到章节文件：${filePath}` };

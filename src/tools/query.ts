@@ -22,8 +22,8 @@ import type { Database } from "../db/index.js";
 
 const z = tool.schema;
 
-/** Local require() — works in this ESM project because we go through createRequire. */
-const localRequire = createRequire(import.meta.url);
+/** Local require() — works in both ESM and CJS builds. */
+const localRequire = typeof __dirname !== 'undefined' ? require : createRequire(import.meta.url);
 
 // ---------------------------------------------------------------------------
 // Constants

@@ -9,6 +9,9 @@ import type { Model } from "@opencode-ai/sdk"
 import { loadStyleAnchor } from "../modules/style-anchor/tool.js"
 import { loadAntiAiRules, getRulesBySeverity } from "../modules/review/anti-ai-rules.js"
 import { loadRcConfig } from "../tools/init.js"
+import fs from "fs"
+import path from "path"
+import { buildRAGContext, shouldEnableRAG } from "../modules/rag/retriever.js"
 
 function buildStyleAnchorString(projectRoot: string): string | null {
   const profile = loadStyleAnchor(projectRoot)
@@ -57,6 +60,10 @@ function buildVoiceCheckReminder(): string {
   ].join("\n")
 }
 
+function isNovelProject(projectRoot: string): boolean {
+  return fs.existsSync(path.join(projectRoot, ".novel-weaver"))
+}
+
 export function createSystemTransformHook() {
   return async (
     _input: { sessionID?: string; model: Model },
@@ -86,6 +93,25 @@ export function createSystemTransformHook() {
 
       output.system.push(buildVoiceCheckReminder())
       injected = true
+
+      // RAG context injection — inject relevant setting/character/fact context
+      if (isNovelProject(projectRoot)) {
+        try {
+          const ragEnabled = await shouldEnableRAG(projectRoot)
+          if (ragEnabled) {
+            const query = typeof (_input as Record<string, unknown>).input === "string"
+              ? (_input as Record<string, unknown>).input as string
+              : "当前写作上下文"
+            const ragContext = await buildRAGContext(query, projectRoot)
+            if (ragContext && ragContext.length > 0) {
+              output.system.push(`\n## 当前最相关的设定（RAG 检索）\n${ragContext}`)
+              injected = true
+            }
+          }
+        } catch (ragErr) {
+          console.error("[novel-weaver] RAG context injection error:", ragErr instanceof Error ? ragErr.message : String(ragErr))
+        }
+      }
 
       if (!injected) {
         output.system.push(

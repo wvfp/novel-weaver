@@ -1,0 +1,4 @@
+=== Step 1: plugin_load [PASS] ===
+Plugin loaded successfully.
+  id: novel-weaver
+  server: Function

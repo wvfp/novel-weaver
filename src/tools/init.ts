@@ -163,7 +163,7 @@ export const novelInitTool = tool({
     try {
       db.run(
         `INSERT INTO worlds (id, project_id, name, type, status, yaml_metadata) VALUES (?, ?, ?, ?, ?, ?)`,
-        [worldId, projectId, project_name, "core", "active", null]
+        [worldId, projectId, project_name, "primary", "active", null]
       );
     } catch (err) {
       return {

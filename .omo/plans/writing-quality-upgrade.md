@@ -70,13 +70,13 @@
 - Anti-AI 替代方案速查表
 
 ### Definition of Done
-- [ ] novel_init 在初始化时自动创建 4 张新表
-- [ ] novel_write_chapter 可通过 Agent(PlotWriter) 协作生成正文
-- [ ] 写后可自动提取章节事实并写入 chapter_facts
-- [ ] Reviewer 可检测至少 5/7 层 AI 味问题
-- [ ] novel_review_fix 可自动修复 AI 味问题（替换表达模式）
-- [ ] 风格锚点可从已有章节自动提取
-- [ ] 题材模板影响 PlotWriter 的写作风格
+- [x] novel_init 在初始化时自动创建 4 张新表
+- [x] novel_write_chapter 可通过 Agent(PlotWriter) 协作生成正文
+- [x] 写后可自动提取章节事实并写入 chapter_facts
+- [x] Reviewer 可检测至少 5/7 层 AI 味问题
+- [x] novel_review_fix 可自动修复 AI 味问题（替换表达模式）
+- [x] 风格锚点可从已有章节自动提取
+- [x] 题材模板影响 PlotWriter 的写作风格
 
 ### Must Have
 - **模块化架构**：每个领域是一个自包含的 `src/modules/<domain>/` 目录，包含 tool + queries + types，不跨模块引用
@@ -2071,7 +2071,7 @@ Max Concurrent: 6 (Wave 1)
 > 科幻项目 → 科技风格面板（星图、科技树、舰船状态）
 > 每个项目都不一样，完全由 AI 根据项目内容决定 UI 结构和视觉风格。
 
-- [ ] 27. **Create Dashboard HTTP server**
+- [x] 27. **Create Dashboard HTTP server**
 
   **What to do**:
   - Create `src/dashboard/server.ts` — Express.js server setup:
@@ -2127,7 +2127,7 @@ Max Concurrent: 6 (Wave 1)
   **Commit**: YES (groups with T27-T30)
   - Files: `src/dashboard/server.ts`, `src/dashboard/routes.ts`, `package.json`
 
-- [ ] 28. **Create Dashboard REST API**
+- [x] 28. **Create Dashboard REST API**
 
   **What to do**:
   - Create `src/dashboard/api.ts` — Express Router with endpoints:
@@ -2207,7 +2207,7 @@ Max Concurrent: 6 (Wave 1)
   **Commit**: YES (groups with T27-T30)
   - Files: `src/dashboard/api.ts`
 
-- [ ] 29. **Create AI-powered dashboard page generator**
+- [x] 29. **Create AI-powered dashboard page generator**
 
   **What to do**:
   - Create `src/dashboard/generator.ts` — AI-driven dashboard generator:
@@ -2308,7 +2308,7 @@ print('PASS')
   **Commit**: YES (groups with T27-T30)
   - Files: `src/dashboard/generator.ts`, `src/dashboard/prompts/dashboard-generator.md`
 
-- [ ] 30. **Create novel_dashboard tool + skill integration**
+- [x] 30. **Create novel_dashboard tool + skill integration**
 
   **What to do**:
   - Register `novel_dashboard` tool in `src/index.ts`:
@@ -2430,7 +2430,7 @@ print('PASS')
 
 > 读者在 Dashboard 上标注 → AI 检测标注 → 自动生成修改方案 → 应用到章节
 
-- [ ] 32. **Create novel_annotations tool + integrate into PlotWriter/Reviewer prompts**
+- [x] 32. **Create novel_annotations tool + integrate into PlotWriter/Reviewer prompts**
 
   **What to do (part 1 — tool)**:
   - Create `src/modules/annotations/tool.ts` — 标注管理工具:
@@ -2517,7 +2517,7 @@ print('PASS')
 
 > 用户提供一本 TXT 小说 → 统计分析 + AI 风格总结 → 生成风格印记 JSON → 自动注入 PlotWriter 写作提示词
 
-- [ ] 33. **Create style imprint type definitions + storage layer**
+- [x] 33. **Create style imprint type definitions + storage layer**
 
   **What to do**:
   - Create `src/modules/style-imprint/imprint-schema.ts` — 定义 `StyleImprint` 接口:
@@ -2567,7 +2567,7 @@ print('PASS')
   - `src/modules/init/tool.ts` — Init flow to create style-imprints dir
   - `.novel-weaver/style-anchors/` — Similar file-based storage pattern
 
-- [ ] 34. **Create statistical text analyzer for Chinese web novels**
+- [x] 34. **Create statistical text analyzer for Chinese web novels**
 
   **What to do**:
   - Create `src/modules/style-imprint/analyzer.ts`:
@@ -2595,7 +2595,7 @@ print('PASS')
   - **Parallel Group**: Wave 7 (with T33, T35, T36)
   - **Blocked By**: T33 (imprint schema)
 
-- [ ] 35. **Create novel_imprint tool**
+- [x] 35. **Create novel_imprint tool**
 
   **What to do**:
   - Create `src/modules/style-imprint/tool.ts`:
@@ -2616,7 +2616,7 @@ print('PASS')
   - **Parallel Group**: Wave 7 (with T33, T34, T36)
   - **Blocked By**: T33 (storage), T34 (analyzer)
 
-- [ ] 36. **Integrate style imprint injection into PlotWriter writing flow**
+- [x] 36. **Integrate style imprint injection into PlotWriter writing flow**
 
   **What to do**:
   - Create `src/modules/style-imprint/injector.ts`:
@@ -2656,7 +2656,7 @@ print('PASS')
 
 > 参考 CodeWhale 方案，解决长篇小说核心问题：Token 消耗过大（概要中心）、设定检索不精确（RAG）、关键事实漂移（不可变锁定）
 
-- [ ] 37. **Create chapter summary table + summary generation engine**
+- [x] 37. **Create chapter summary table + summary generation engine**
 
   **What to do**:
   - Add `chapter_summaries` table to `src/db/schema.ts`:
@@ -2692,7 +2692,7 @@ print('PASS')
   - **Can Run In Parallel**: YES (with T38-T42)
   - **Blocked By**: T1 (schema types)
 
-- [ ] 38. **Create novel_summary tool + summary lifecycle management**
+- [x] 38. **Create novel_summary tool + summary lifecycle management**
 
   **What to do**:
   - Create `src/modules/summary/tool.ts`:
@@ -2708,7 +2708,7 @@ print('PASS')
   - **Can Run In Parallel**: YES (with T37, T39-T42)
   - **Blocked By**: T37 (summary engine)
 
-- [ ] 39. **🔥 Integrate summary system via OpenCode hooks (系统级上下文调度)**
+- [x] 39. **🔥 Integrate summary system via OpenCode hooks (系统级上下文调度)**
 
   **What to do**:
   - **不在 context-manager.ts 内部实现**（那是工具级别的，范围太小）
@@ -2753,7 +2753,7 @@ print('PASS')
   - **Can Run In Parallel**: YES (with T37-T38, T40-T42)
   - **Blocked By**: T37 (summary table exists), T38 (summary generation works)
 
-- [ ] 40. **Create RAG embedder + vector store**
+- [x] 40. **Create RAG embedder + vector store**
 
   **What to do**:
   - Create `src/modules/rag/embedder.ts`:
@@ -2777,7 +2777,7 @@ print('PASS')
   - **Can Run In Parallel**: YES (with T37-T39, T41-T42)
   - **Blocked By**: None (独立模块)
 
-- [ ] 41. **🔥 Integrate RAG via OpenCode hooks（系统级注入，不限于写工具调用）**
+- [x] 41. **🔥 Integrate RAG via OpenCode hooks（系统级注入，不限于写工具调用）**
 
   **What to do**:
   - Create `src/modules/rag/retriever.ts`:
@@ -2820,7 +2820,7 @@ print('PASS')
   - **Can Run In Parallel**: YES (with T37-T40, T42)
   - **Blocked By**: T40 (embedder + vector store exist)
 
-- [ ] 42. **Immutable fact locking + consistency scoring**
+- [x] 42. **Immutable fact locking + consistency scoring**
 
   **What to do**:
   - Update `chapter_facts` table: add `locked INTEGER DEFAULT 0` column
@@ -2865,15 +2865,15 @@ print('PASS')
 
 > 4 review agents run in PARALLEL. ALL must APPROVE. Present consolidated results and wait for explicit user "okay".
 
-- [ ] F1. **Plan Compliance Audit** — `oracle`
+- [x] F1. **Plan Compliance Audit** — `oracle`
   Read the plan end-to-end. For each "Must Have": verify implementation exists (read file, confirm table schema, check agent registration). For each "Must NOT Have": search codebase for forbidden patterns — reject with file:line if found. Check evidence files exist in .omo/evidence/. Compare deliverables against plan.
   Output: `Must Have [N/N] | Must NOT Have [N/N] | Tasks [N/N] | VERDICT: APPROVE/REJECT`
 
-- [ ] F2. **Code Quality Review** — `unspecified-high`
+- [x] F2. **Code Quality Review** — `unspecified-high`
   Run `tsc --noEmit` + check for: `as any`/`@ts-ignore`, empty catches, console.log in prod, unused imports. Check AI slop: excessive comments, over-abstraction, generic names. Verify parameterized queries in all new DB code (no sq() calls).
   Output: `Build [PASS/FAIL] | Files [N clean/N issues] | Parameterized queries [ALL/FOUND sq()] | VERDICT`
 
-- [ ] F3. **End-to-End QA** — `unspecified-high`
+- [x] F3. **End-to-End QA** — `unspecified-high`
   Start from clean state. Execute full flow:
   1. `novel_init project_name="test" genre="xianxia"` → verify 4 new tables exist
   2. `novel_world_create` → create a core world
@@ -2890,7 +2890,7 @@ print('PASS')
   13. Save all evidence to `.omo/evidence/final-qa/`
   Output: `Steps [N/N pass] | Evidence [N files] | VERDICT`
 
-- [ ] F4. **Scope Fidelity Check** — `deep`
+- [x] F4. **Scope Fidelity Check** — `deep`
   For each task: read "What to do", read actual diff (git log/diff). Verify 1:1 — everything in spec was built (no missing), nothing beyond spec was built (no creep). Check "Must NOT do" compliance. Detect cross-task contamination: Task N touching Task M's files. Flag unaccounted changes.
   Output: `Tasks [N/N compliant] | Contamination [CLEAN/N issues] | Must NOT Have [CLEAN/N violations] | VERDICT`
 
@@ -2936,6 +2936,6 @@ sqlite3 .novel-weaver/novel-weaver.db ".tables" | grep -c "chapter_facts"  # Exp
 ```
 
 ### Final Checklist
-- [ ] All "Must Have" present
-- [ ] All "Must NOT Have" absent
-- [ ] All Wave-FINAL reviews pass
+- [x] All "Must Have" present
+- [x] All "Must NOT Have" absent
+- [x] All Wave-FINAL reviews pass

@@ -81,9 +81,7 @@ function applyMigrations(db: SqlJsDatabase): void {
 
   for (const migration of MIGRATIONS) {
     if (migration.version > currentVersion) {
-      console.log(`[novel-weaver] Applying migration ${migration.version}: ${migration.name}`);
       migration.up(db);
-      console.log(`[novel-weaver] Migration ${migration.version} applied.`);
     }
   }
 }

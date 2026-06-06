@@ -19,6 +19,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import type { Database } from "../db/index.js";
 import { DEFAULT_CONFIG } from "../config.js";
+import { buildChapterFilename } from "../md/wikilink.js";
 
 // ---------------------------------------------------------------------------
 // Public result shape
@@ -499,10 +500,10 @@ export function formatPacingReport(m: ChapterPacingMetadata): string {
 function loadChapterRow(
   db: Database,
   chapterId: string,
-): { id: string; chapter_num: number; title: string; word_count: number } | null {
+): { id: string; chapter_num: number; volume_num: number; title: string; word_count: number } | null {
   try {
     const stmt = db.prepare(
-      "SELECT id, chapter_num, title, word_count FROM chapters WHERE id = ?",
+      "SELECT id, chapter_num, volume_num, title, word_count FROM chapters WHERE id = ?",
     );
     stmt.bind([chapterId]);
     if (!stmt.step()) {
@@ -512,6 +513,7 @@ function loadChapterRow(
     const row = stmt.getAsObject() as {
       id: string;
       chapter_num: number;
+      volume_num: number;
       title: string;
       word_count: number;
     };
@@ -519,6 +521,7 @@ function loadChapterRow(
     return {
       id: String(row.id),
       chapter_num: Number(row.chapter_num),
+      volume_num: Number(row.volume_num),
       title: String(row.title),
       word_count: Number(row.word_count),
     };
@@ -527,10 +530,10 @@ function loadChapterRow(
   }
 }
 
-/** Read chapter .md file, strip frontmatter. */
-function readChapterBody(projectRoot: string, chapterId: string): string | null {
-  const dataDir = DEFAULT_CONFIG.dataDir;
-  const filePath = path.join(projectRoot, dataDir, "chapters", `${chapterId}.md`);
+/** Read chapter .md file from the content directory, strip frontmatter. */
+function readChapterBody(projectRoot: string, volumeNum: number, chapterNum: number, title: string): string | null {
+  const dir = path.join(projectRoot, '.novel-weaver', 'content', 'chapters', `vol-${volumeNum}`);
+  const filePath = path.join(dir, buildChapterFilename(chapterNum, title));
   try {
     const text = fs.readFileSync(filePath, "utf-8");
     return text.replace(/^---[\s\S]*?---\n?/, "").trim();
@@ -555,7 +558,7 @@ export function analyzeChapterPacing(
   const row = loadChapterRow(db, chapterId);
   if (!row) return null;
 
-  const content = readChapterBody(projectRoot, row.id);
+  const content = readChapterBody(projectRoot, row.volume_num, row.chapter_num, row.title);
   if (content === null) return null;
 
   return analyzePacing(

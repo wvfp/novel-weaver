@@ -1,0 +1,21 @@
+=== Step 2: novel_init [PASS] ===
+✅ 无限流小说项目「仙途问道」初始化完成！
+
+📁 目录结构：
+  .novel-weaver/
+  ├── novel-weaver.db      (数据库)
+  ├── config.json          (项目配置：模型 / 温度 / token 上限)
+  ├── settings/
+  │   └── 核心世界观.md     (核心世界观设定)
+  ├── arcs/                (篇章设定存放目录)
+  └── chapters/
+      └── vol-1/           (第一卷章节存放目录)
+
+📋 项目信息：
+  ID: a1389a69-32fd-42bf-b2c2-65971eebc587
+  名称: 仙途问道
+  题材: xianxia
+  作者: 测试作者
+
+[META] projectId: a1389a69-32fd-42bf-b2c2-65971eebc587
+worldId: ecf3ca9b-dc2f-4a19-b3c8-982bc88291db

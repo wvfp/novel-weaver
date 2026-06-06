@@ -32,10 +32,6 @@
     "dist",
     "bin"
   ],
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.18.0",
-    "zod-to-json-schema": "^3.23.5"
-  },
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",

@@ -60,13 +60,14 @@ export async function startServer(
   app.use("/api", apiRouter(projectRoot));
 
   // ── Static file serving from web/dist ────────────────────────────────
-  const thisDir = path.dirname(url.fileURLToPath(import.meta.url));
+  const thisDir = typeof __dirname !== 'undefined' ? __dirname : path.dirname(url.fileURLToPath(import.meta.url));
   const webDist = path.resolve(thisDir, "../../web/dist");
   const webDistExists = fs.existsSync(webDist);
 
   if (webDistExists) {
     app.use(express.static(webDist));
-    app.get("*", (_req, res) => {
+    app.use((req, res, next) => {
+      if (req.method !== "GET") return next();
       res.sendFile(path.join(webDist, "index.html"));
     });
   } else {
@@ -76,7 +77,8 @@ export async function startServer(
       app.use(express.static(dashDir));
     }
 
-    app.get("*", (_req, res) => {
+    app.use((req, res, next) => {
+      if (req.method !== "GET") return next();
       const indexPath = path.join(dashDir, "index.html");
       if (fs.existsSync(indexPath)) {
         res.sendFile(indexPath);

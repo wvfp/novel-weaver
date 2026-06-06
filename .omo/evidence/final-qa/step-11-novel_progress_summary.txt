@@ -1,0 +1,9 @@
+=== Step 11: novel_progress_summary [PASS] ===
+✅ **攻略进度总览报告已生成！**
+
+📄 progress-summary-2026-06-06.md
+📁 G:\AppData\temp\opencode\novel-qa-20260606-232843\.novel-weaver\content\reports\progress-summary-2026-06-06.md
+
+共 1 个篇章，总进度 0/5（0%）
+
+💡 打开 Obsidian 即可查看此报告。

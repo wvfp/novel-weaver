@@ -1,0 +1,2 @@
+=== Step 5: novel_character_create [PASS] ===
+Character "林夜" created successfully.

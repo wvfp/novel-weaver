@@ -222,14 +222,8 @@ export function extractAndCommit(chapterId: string): CommitResult {
     };
   }
 
-  // 2. 读取章节正文（从 .md 文件）
-  const fileStmt = db.prepare(
-    'SELECT yaml_metadata FROM chapters WHERE id = ?'
-  );
-  fileStmt.bind([chapterId]);
-  // 简单起见，此处假设正文已存在
-
-  // 3. 从章节标题和元数据中提取事实（简化版本）
+  // 2. 从章节标题中提取事实（简化版本）
+  // 注：章节正文存储在 .md 文件中，当前从标题提取基础事实；后续可改为读取文件内容。
   const title = chapterRow.title as string;
   const chapterNum = chapterRow.chapter_num as number;
 
